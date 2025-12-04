@@ -1,0 +1,2155 @@
+<%!-- Premium Landing Page for ClinicFlow --%>
+<%!-- Editorial Medical Luxury aesthetic - confident, warm, sophisticated --%>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     CLINICFLOW PREMIUM LANDING PAGE
+     Aesthetic: Editorial Medical Luxury
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* Import distinctive fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    /* Color System - Deep, confident, warm */
+    --cf-navy: #0f172a;
+    --cf-navy-90: #1e293b;
+    --cf-slate: #334155;
+    --cf-slate-light: #64748b;
+    --cf-warm-white: #fafaf9;
+    --cf-cream: #f5f5f4;
+    --cf-accent: #0ea5e9;
+    --cf-accent-dark: #0284c7;
+    --cf-accent-glow: rgba(14, 165, 233, 0.15);
+    --cf-success: #10b981;
+    --cf-urgent: #f59e0b;
+    --cf-emergency: #ef4444;
+
+    /* Typography */
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Spacing rhythm */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 10rem;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-base: 0.4s var(--ease-out-expo);
+  }
+
+  /* Reset & Base */
+  .landing-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .landing-page {
+    font-family: var(--font-body);
+    color: var(--cf-navy);
+    background: var(--cf-warm-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--space-md) var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(250, 250, 249, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    transition: var(--transition-base);
+  }
+
+  .cf-nav.scrolled {
+    padding: var(--space-sm) var(--space-xl);
+    box-shadow: 0 4px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .cf-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--cf-navy);
+  }
+
+  .cf-logo-mark {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--cf-accent) 0%, var(--cf-accent-dark) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--cf-accent-glow);
+  }
+
+  .cf-logo-mark svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+  }
+
+  .cf-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .cf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .cf-nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cf-slate);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .cf-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cf-accent);
+    transition: width 0.3s var(--ease-out-expo);
+  }
+
+  .cf-nav-link:hover {
+    color: var(--cf-navy);
+  }
+
+  .cf-nav-link:hover::after {
+    width: 100%;
+  }
+
+  .cf-nav-cta {
+    padding: 0.75rem 1.5rem;
+    background: var(--cf-navy);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-out-expo);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.15);
+  }
+
+  .cf-nav-cta:hover {
+    background: var(--cf-navy-90);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--space-3xl) + 80px) var(--space-xl) var(--space-3xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cf-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse at 70% 30%, var(--cf-accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cf-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-2xl);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .cf-hero-content {
+    animation: fadeInUp 1s var(--ease-out-expo) 0.2s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .cf-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.5rem 1rem;
+    background: var(--cf-cream);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cf-slate);
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--cf-success);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  .cf-hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5.5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--cf-navy);
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-hero-headline em {
+    font-style: italic;
+    color: var(--cf-accent-dark);
+  }
+
+  .cf-hero-subhead {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--cf-slate);
+    max-width: 540px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cf-hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .cf-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 1.1rem 2rem;
+    background: var(--cf-accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-out-expo);
+    box-shadow: 0 4px 20px var(--cf-accent-glow);
+  }
+
+  .cf-btn-primary:hover {
+    background: var(--cf-accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(14, 165, 233, 0.35);
+  }
+
+  .cf-btn-primary svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .cf-btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .cf-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 1.1rem 1.5rem;
+    color: var(--cf-slate);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .cf-btn-secondary:hover {
+    color: var(--cf-navy);
+  }
+
+  .cf-btn-secondary svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Hero Visual - Queue Mockup */
+  .cf-hero-visual {
+    position: relative;
+    animation: fadeInUp 1s var(--ease-out-expo) 0.5s both;
+  }
+
+  .cf-queue-mockup {
+    background: white;
+    border-radius: 24px;
+    box-shadow:
+      0 4px 6px rgba(15, 23, 42, 0.02),
+      0 12px 24px rgba(15, 23, 42, 0.05),
+      0 24px 48px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .cf-mockup-header {
+    padding: var(--space-md) var(--space-lg);
+    background: var(--cf-navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cf-mockup-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .cf-mockup-title svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+  }
+
+  .cf-mockup-stats {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .cf-mockup-stat {
+    text-align: center;
+  }
+
+  .cf-mockup-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .cf-mockup-stat-label {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cf-mockup-body {
+    padding: var(--space-md);
+  }
+
+  .cf-queue-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .cf-queue-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--cf-cream);
+    border-radius: 12px;
+    transition: all 0.4s var(--ease-out-expo);
+    animation: slideIn 0.6s var(--ease-out-expo) both;
+  }
+
+  .cf-queue-item:nth-child(1) { animation-delay: 0.7s; }
+  .cf-queue-item:nth-child(2) { animation-delay: 0.85s; }
+  .cf-queue-item:nth-child(3) { animation-delay: 1s; }
+  .cf-queue-item:nth-child(4) { animation-delay: 1.15s; }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .cf-queue-item:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    transform: translateX(4px);
+  }
+
+  .cf-queue-position {
+    width: 32px;
+    height: 32px;
+    background: var(--cf-navy);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .cf-queue-item.emergency .cf-queue-position {
+    background: var(--cf-emergency);
+  }
+
+  .cf-queue-item.urgent .cf-queue-position {
+    background: var(--cf-urgent);
+  }
+
+  .cf-queue-info {
+    flex: 1;
+  }
+
+  .cf-queue-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--cf-navy);
+  }
+
+  .cf-queue-reason {
+    font-size: 0.8rem;
+    color: var(--cf-slate-light);
+  }
+
+  .cf-queue-eta {
+    text-align: right;
+  }
+
+  .cf-queue-eta-time {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--cf-navy);
+  }
+
+  .cf-queue-eta-label {
+    font-size: 0.75rem;
+    color: var(--cf-slate-light);
+  }
+
+  .cf-queue-badge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--cf-success);
+  }
+
+  .cf-queue-item.emergency .cf-queue-badge {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--cf-emergency);
+  }
+
+  .cf-queue-item.urgent .cf-queue-badge {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--cf-urgent);
+  }
+
+  /* Floating elements */
+  .cf-float-card {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-md);
+    box-shadow:
+      0 4px 6px rgba(15, 23, 42, 0.04),
+      0 10px 20px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .cf-float-wait {
+    top: 20%;
+    left: -60px;
+    animation-delay: -1s;
+  }
+
+  .cf-float-reduction {
+    bottom: 15%;
+    right: -40px;
+    animation-delay: -3s;
+  }
+
+  .cf-float-card-label {
+    font-size: 0.75rem;
+    color: var(--cf-slate-light);
+    margin-bottom: 4px;
+  }
+
+  .cf-float-card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cf-navy);
+  }
+
+  .cf-float-card-value span {
+    color: var(--cf-success);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     SOCIAL PROOF BAR
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-proof {
+    padding: var(--space-xl) var(--space-xl);
+    background: var(--cf-cream);
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .cf-proof-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cf-proof-label {
+    font-size: 0.85rem;
+    color: var(--cf-slate-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-proof-metrics {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+
+  .cf-proof-metric {
+    text-align: center;
+  }
+
+  .cf-proof-metric-value {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--cf-navy);
+    line-height: 1;
+  }
+
+  .cf-proof-metric-value span {
+    color: var(--cf-accent);
+  }
+
+  .cf-proof-metric-label {
+    font-size: 0.9rem;
+    color: var(--cf-slate-light);
+    margin-top: var(--space-xs);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PROBLEM / SOLUTION SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-problem {
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--cf-navy);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cf-problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cf-problem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cf-problem-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .cf-section-eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cf-accent);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .cf-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-section-title em {
+    font-style: italic;
+  }
+
+  .cf-problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .cf-pain-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: var(--space-lg);
+    transition: all 0.4s var(--ease-out-expo);
+  }
+
+  .cf-pain-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .cf-pain-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(239, 68, 68, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-pain-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #fca5a5;
+  }
+
+  .cf-pain-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .cf-pain-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+  }
+
+  .cf-pain-stat {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+  }
+
+  .cf-pain-stat strong {
+    color: var(--cf-emergency);
+    font-weight: 700;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     FEATURES SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-features {
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--cf-warm-white);
+  }
+
+  .cf-features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cf-features-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .cf-features-header .cf-section-eyebrow {
+    color: var(--cf-accent);
+  }
+
+  .cf-features-header .cf-section-title {
+    color: var(--cf-navy);
+  }
+
+  .cf-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .cf-feature-card {
+    background: white;
+    border-radius: 20px;
+    padding: var(--space-lg);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cf-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cf-accent) 0%, var(--cf-success) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+
+  .cf-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 8px 16px rgba(15, 23, 42, 0.04),
+      0 20px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .cf-feature-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cf-feature-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--cf-accent-glow);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-feature-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--cf-accent);
+  }
+
+  .cf-feature-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--cf-navy);
+    margin-bottom: var(--space-xs);
+  }
+
+  .cf-feature-desc {
+    font-size: 0.95rem;
+    color: var(--cf-slate-light);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     RESULTS / CASE STUDY SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-results {
+    padding: var(--space-3xl) var(--space-xl);
+    background: linear-gradient(180deg, var(--cf-cream) 0%, var(--cf-warm-white) 100%);
+  }
+
+  .cf-results-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cf-results-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .cf-results-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .cf-results-visual {
+    position: relative;
+  }
+
+  .cf-results-chart {
+    background: white;
+    border-radius: 24px;
+    padding: var(--space-xl);
+    box-shadow:
+      0 4px 6px rgba(15, 23, 42, 0.02),
+      0 12px 24px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .cf-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-chart-title {
+    font-weight: 600;
+    color: var(--cf-navy);
+  }
+
+  .cf-chart-legend {
+    display: flex;
+    gap: var(--space-md);
+    font-size: 0.8rem;
+  }
+
+  .cf-chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cf-slate-light);
+  }
+
+  .cf-chart-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+
+  .cf-chart-legend-dot.before { background: #cbd5e1; }
+  .cf-chart-legend-dot.after { background: var(--cf-accent); }
+
+  .cf-chart-bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .cf-chart-bar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cf-chart-bar-label {
+    font-size: 0.85rem;
+    color: var(--cf-slate);
+    font-weight: 500;
+  }
+
+  .cf-chart-bar-track {
+    height: 12px;
+    background: var(--cf-cream);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cf-chart-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1.5s var(--ease-out-expo);
+  }
+
+  .cf-chart-bar-fill.before {
+    background: #cbd5e1;
+  }
+
+  .cf-chart-bar-fill.after {
+    background: linear-gradient(90deg, var(--cf-accent) 0%, var(--cf-success) 100%);
+  }
+
+  .cf-results-content {
+    padding-left: var(--space-xl);
+  }
+
+  .cf-result-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .cf-result-metric {
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-lg);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    text-align: center;
+  }
+
+  .cf-result-metric-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--cf-accent);
+    line-height: 1;
+  }
+
+  .cf-result-metric-label {
+    font-size: 0.9rem;
+    color: var(--cf-slate-light);
+    margin-top: var(--space-xs);
+  }
+
+  .cf-testimonial {
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-lg);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    position: relative;
+  }
+
+  .cf-testimonial::before {
+    content: '"';
+    position: absolute;
+    top: var(--space-sm);
+    left: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--cf-accent-glow);
+    line-height: 1;
+  }
+
+  .cf-testimonial-quote {
+    font-size: 1.05rem;
+    color: var(--cf-slate);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .cf-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .cf-testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--cf-accent) 0%, var(--cf-success) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .cf-testimonial-name {
+    font-weight: 600;
+    color: var(--cf-navy);
+    font-size: 0.95rem;
+  }
+
+  .cf-testimonial-role {
+    font-size: 0.85rem;
+    color: var(--cf-slate-light);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PRICING SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-pricing {
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--cf-warm-white);
+  }
+
+  .cf-pricing-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cf-pricing-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .cf-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .cf-pricing-card {
+    background: white;
+    border-radius: 24px;
+    padding: var(--space-xl);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+  }
+
+  .cf-pricing-card.featured {
+    background: var(--cf-navy);
+    color: white;
+    transform: scale(1.05);
+    box-shadow:
+      0 8px 16px rgba(15, 23, 42, 0.1),
+      0 24px 48px rgba(15, 23, 42, 0.15);
+  }
+
+  .cf-pricing-card:not(.featured):hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 8px 16px rgba(15, 23, 42, 0.04),
+      0 20px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .cf-pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 1rem;
+    background: var(--cf-accent);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+  }
+
+  .cf-pricing-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .cf-pricing-desc {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-pricing-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.6;
+  }
+
+  .cf-pricing-amount {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .cf-pricing-period {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+
+  .cf-pricing-features {
+    list-style: none;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cf-pricing-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) 0;
+    font-size: 0.95rem;
+  }
+
+  .cf-pricing-feature svg {
+    width: 18px;
+    height: 18px;
+    color: var(--cf-success);
+    flex-shrink: 0;
+  }
+
+  .cf-pricing-card.featured .cf-pricing-feature svg {
+    color: #86efac;
+  }
+
+  .cf-pricing-cta {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-out-expo);
+  }
+
+  .cf-pricing-card:not(.featured) .cf-pricing-cta {
+    background: var(--cf-cream);
+    color: var(--cf-navy);
+  }
+
+  .cf-pricing-card:not(.featured) .cf-pricing-cta:hover {
+    background: var(--cf-navy);
+    color: white;
+  }
+
+  .cf-pricing-card.featured .cf-pricing-cta {
+    background: white;
+    color: var(--cf-navy);
+  }
+
+  .cf-pricing-card.featured .cf-pricing-cta:hover {
+    background: var(--cf-accent);
+    color: white;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     CTA SECTION
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-cta {
+    padding: var(--space-3xl) var(--space-xl);
+    background: linear-gradient(135deg, var(--cf-navy) 0%, var(--cf-navy-90) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cf-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, var(--cf-accent-glow) 0%, transparent 50%);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .cf-cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cf-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-cta-title em {
+    font-style: italic;
+    color: var(--cf-accent);
+  }
+
+  .cf-cta-subtitle {
+    font-size: 1.15rem;
+    opacity: 0.8;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cf-cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cf-cta .cf-btn-primary {
+    background: white;
+    color: var(--cf-navy);
+  }
+
+  .cf-cta .cf-btn-primary:hover {
+    background: var(--cf-accent);
+    color: white;
+  }
+
+  .cf-cta .cf-btn-secondary {
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+  }
+
+  .cf-cta .cf-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════ */
+
+  .cf-footer {
+    padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+    background: var(--cf-navy);
+    color: white;
+  }
+
+  .cf-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cf-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cf-footer-brand {
+    max-width: 300px;
+  }
+
+  .cf-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-footer-logo .cf-logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .cf-footer-logo .cf-logo-mark svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cf-footer-logo .cf-logo-text {
+    font-size: 1.25rem;
+    color: white;
+  }
+
+  .cf-footer-tagline {
+    font-size: 0.95rem;
+    opacity: 0.6;
+    line-height: 1.6;
+  }
+
+  .cf-footer-section h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .cf-footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .cf-footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .cf-footer-link:hover {
+    color: white;
+  }
+
+  .cf-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cf-footer-copy {
+    font-size: 0.85rem;
+    opacity: 0.5;
+  }
+
+  .cf-footer-socials {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .cf-footer-social {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+  }
+
+  .cf-footer-social:hover {
+    background: var(--cf-accent);
+    color: white;
+  }
+
+  .cf-footer-social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════════════════════ */
+
+  @media (max-width: 1024px) {
+    .cf-hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .cf-hero-visual {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cf-float-card {
+      display: none;
+    }
+
+    .cf-problem-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cf-results-showcase {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-results-content {
+      padding-left: 0;
+      padding-top: var(--space-xl);
+    }
+
+    .cf-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .cf-pricing-card.featured {
+      transform: none;
+      order: -1;
+    }
+
+    .cf-footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cf-nav {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .cf-nav-links {
+      display: none;
+    }
+
+    .cf-hero {
+      padding: calc(var(--space-2xl) + 60px) var(--space-md) var(--space-2xl);
+    }
+
+    .cf-hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cf-proof-metrics {
+      gap: var(--space-lg);
+    }
+
+    .cf-features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-result-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-footer-bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="landing-page">
+  <!-- Navigation -->
+  <nav class="cf-nav" id="mainNav">
+    <a href="/" class="cf-logo">
+      <div class="cf-logo-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </div>
+      <span class="cf-logo-text">ClinicFlow</span>
+    </a>
+    <div class="cf-nav-links">
+      <a href="#features" class="cf-nav-link">Features</a>
+      <a href="#results" class="cf-nav-link">Results</a>
+      <a href="#pricing" class="cf-nav-link">Pricing</a>
+      <a href="/reception" class="cf-nav-cta">Launch App</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="cf-hero">
+    <div class="cf-hero-grid">
+      <div class="cf-hero-content">
+        <div class="cf-hero-badge">
+          <span class="cf-hero-badge-dot"></span>
+          Trusted by 200+ clinics worldwide
+        </div>
+        <h1 class="cf-hero-headline">
+          End waiting room <em>chaos</em>. Forever.
+        </h1>
+        <p class="cf-hero-subhead">
+          ClinicFlow transforms how clinics manage patient flow. Real-time queue management, smart triage, and instant notifications that reduce wait times by 50% and no-shows by 70%.
+        </p>
+        <div class="cf-hero-actions">
+          <a href="#" class="cf-btn-primary">
+            Start Free Trial
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="#" class="cf-btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Watch Demo
+          </a>
+        </div>
+      </div>
+
+      <div class="cf-hero-visual">
+        <!-- Floating Stats Cards -->
+        <div class="cf-float-card cf-float-wait">
+          <div class="cf-float-card-label">Avg. Wait Time</div>
+          <div class="cf-float-card-value">29<span>min</span></div>
+        </div>
+        <div class="cf-float-card cf-float-reduction">
+          <div class="cf-float-card-label">Wait Reduced</div>
+          <div class="cf-float-card-value"><span>↓35%</span></div>
+        </div>
+
+        <!-- Queue Mockup -->
+        <div class="cf-queue-mockup">
+          <div class="cf-mockup-header">
+            <div class="cf-mockup-title">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              Reception Queue
+            </div>
+            <div class="cf-mockup-stats">
+              <div class="cf-mockup-stat">
+                <div class="cf-mockup-stat-value">12</div>
+                <div class="cf-mockup-stat-label">Waiting</div>
+              </div>
+              <div class="cf-mockup-stat">
+                <div class="cf-mockup-stat-value">4</div>
+                <div class="cf-mockup-stat-label">In Room</div>
+              </div>
+            </div>
+          </div>
+          <div class="cf-mockup-body">
+            <div class="cf-queue-list">
+              <div class="cf-queue-item emergency">
+                <div class="cf-queue-position">1</div>
+                <div class="cf-queue-info">
+                  <div class="cf-queue-name">Sarah M.</div>
+                  <div class="cf-queue-reason">Chest pain, difficulty breathing</div>
+                </div>
+                <span class="cf-queue-badge">Emergency</span>
+                <div class="cf-queue-eta">
+                  <div class="cf-queue-eta-time">Now</div>
+                  <div class="cf-queue-eta-label">Called</div>
+                </div>
+              </div>
+              <div class="cf-queue-item urgent">
+                <div class="cf-queue-position">2</div>
+                <div class="cf-queue-info">
+                  <div class="cf-queue-name">James K.</div>
+                  <div class="cf-queue-reason">High fever, 3 days</div>
+                </div>
+                <span class="cf-queue-badge">Urgent</span>
+                <div class="cf-queue-eta">
+                  <div class="cf-queue-eta-time">~5 min</div>
+                  <div class="cf-queue-eta-label">ETA</div>
+                </div>
+              </div>
+              <div class="cf-queue-item">
+                <div class="cf-queue-position">3</div>
+                <div class="cf-queue-info">
+                  <div class="cf-queue-name">Linda P.</div>
+                  <div class="cf-queue-reason">Routine checkup</div>
+                </div>
+                <span class="cf-queue-badge">Routine</span>
+                <div class="cf-queue-eta">
+                  <div class="cf-queue-eta-time">~15 min</div>
+                  <div class="cf-queue-eta-label">ETA</div>
+                </div>
+              </div>
+              <div class="cf-queue-item">
+                <div class="cf-queue-position">4</div>
+                <div class="cf-queue-info">
+                  <div class="cf-queue-name">Michael R.</div>
+                  <div class="cf-queue-reason">Follow-up consultation</div>
+                </div>
+                <span class="cf-queue-badge">Routine</span>
+                <div class="cf-queue-eta">
+                  <div class="cf-queue-eta-time">~25 min</div>
+                  <div class="cf-queue-eta-label">ETA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="cf-proof">
+    <div class="cf-proof-inner">
+      <div class="cf-proof-label">Measurable Impact</div>
+      <div class="cf-proof-metrics">
+        <div class="cf-proof-metric">
+          <div class="cf-proof-metric-value">50<span>%</span></div>
+          <div class="cf-proof-metric-label">Wait Time Reduction</div>
+        </div>
+        <div class="cf-proof-metric">
+          <div class="cf-proof-metric-value">70<span>%</span></div>
+          <div class="cf-proof-metric-label">Fewer No-Shows</div>
+        </div>
+        <div class="cf-proof-metric">
+          <div class="cf-proof-metric-value">40<span>%</span></div>
+          <div class="cf-proof-metric-label">Staff Time Saved</div>
+        </div>
+        <div class="cf-proof-metric">
+          <div class="cf-proof-metric-value">99.9<span>%</span></div>
+          <div class="cf-proof-metric-label">Uptime SLA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="cf-problem">
+    <div class="cf-problem-inner">
+      <div class="cf-problem-header">
+        <div class="cf-section-eyebrow">The Problem</div>
+        <h2 class="cf-section-title">
+          Your waiting room is <em>bleeding</em> revenue
+        </h2>
+      </div>
+      <div class="cf-problem-grid">
+        <div class="cf-pain-card">
+          <div class="cf-pain-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="cf-pain-title">Excessive Wait Times</h3>
+          <p class="cf-pain-desc">Paper lists and verbal name-calling create 2-3x longer waits than necessary. Patients leave frustrated, staff burn out.</p>
+          <div class="cf-pain-stat">Industry average: <strong>45+ minutes</strong> per patient</div>
+        </div>
+        <div class="cf-pain-card">
+          <div class="cf-pain-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </div>
+          <h3 class="cf-pain-title">Skyrocketing No-Shows</h3>
+          <p class="cf-pain-desc">Without real-time notifications, patients miss their turn. Empty slots can't be filled. Revenue walks out the door.</p>
+          <div class="cf-pain-stat">Average no-show rate: <strong>15-25%</strong></div>
+        </div>
+        <div class="cf-pain-card">
+          <div class="cf-pain-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="cf-pain-title">Unbalanced Workloads</h3>
+          <p class="cf-pain-desc">Some doctors overloaded while rooms sit empty. No visibility into real-time capacity means constant bottlenecks.</p>
+          <div class="cf-pain-stat">Room idle time: <strong>up to 27%</strong></div>
+        </div>
+        <div class="cf-pain-card">
+          <div class="cf-pain-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="cf-pain-title">Zero Visibility</h3>
+          <p class="cf-pain-desc">No analytics means decisions based on guesswork. Can't identify bottlenecks, peak hours, or underperforming branches.</p>
+          <div class="cf-pain-stat">Decisions made on: <strong>intuition, not data</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="cf-features" id="features">
+    <div class="cf-features-inner">
+      <div class="cf-features-header">
+        <div class="cf-section-eyebrow">The Solution</div>
+        <h2 class="cf-section-title">
+          Everything you need to <em>transform</em> your clinic
+        </h2>
+      </div>
+      <div class="cf-features-grid">
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">Smart Queue Management</h3>
+          <p class="cf-feature-desc">Priority-based triage automatically sorts patients. Emergency, urgent, and routine cases flow seamlessly.</p>
+        </div>
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">Real-Time Updates</h3>
+          <p class="cf-feature-desc">LiveView technology means instant updates. No refresh needed. Doctors and reception always in sync.</p>
+        </div>
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">SMS & WhatsApp Alerts</h3>
+          <p class="cf-feature-desc">Automatic notifications keep patients informed. "You're next" messages reduce no-shows by 70%.</p>
+        </div>
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">Analytics Dashboard</h3>
+          <p class="cf-feature-desc">Identify peak hours, track doctor productivity, and spot bottlenecks. Data-driven decisions, finally.</p>
+        </div>
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">Multi-Branch Portal</h3>
+          <p class="cf-feature-desc">Manage all your locations from one dashboard. Staff roles, room configuration, and cross-branch analytics.</p>
+        </div>
+        <div class="cf-feature-card">
+          <div class="cf-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="cf-feature-title">Waiting Room Display</h3>
+          <p class="cf-feature-desc">GDPR-compliant kiosk mode shows queue status. Anonymized names, color-coded triage, auto-refresh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="cf-results" id="results">
+    <div class="cf-results-inner">
+      <div class="cf-results-header">
+        <div class="cf-section-eyebrow">Real Results</div>
+        <h2 class="cf-section-title">
+          Clinics that <em>switched</em> never looked back
+        </h2>
+      </div>
+      <div class="cf-results-showcase">
+        <div class="cf-results-visual">
+          <div class="cf-results-chart">
+            <div class="cf-chart-header">
+              <div class="cf-chart-title">Before vs After ClinicFlow</div>
+              <div class="cf-chart-legend">
+                <div class="cf-chart-legend-item">
+                  <span class="cf-chart-legend-dot before"></span>
+                  Before
+                </div>
+                <div class="cf-chart-legend-item">
+                  <span class="cf-chart-legend-dot after"></span>
+                  After
+                </div>
+              </div>
+            </div>
+            <div class="cf-chart-bars">
+              <div class="cf-chart-bar-group">
+                <div class="cf-chart-bar-label">Average Wait Time</div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill before" style="width: 90%;"></div>
+                </div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill after" style="width: 58%;"></div>
+                </div>
+              </div>
+              <div class="cf-chart-bar-group">
+                <div class="cf-chart-bar-label">No-Show Rate</div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill before" style="width: 75%;"></div>
+                </div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill after" style="width: 30%;"></div>
+                </div>
+              </div>
+              <div class="cf-chart-bar-group">
+                <div class="cf-chart-bar-label">Room Idle Time</div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill before" style="width: 68%;"></div>
+                </div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill after" style="width: 13%;"></div>
+                </div>
+              </div>
+              <div class="cf-chart-bar-group">
+                <div class="cf-chart-bar-label">Patient Complaints</div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill before" style="width: 80%;"></div>
+                </div>
+                <div class="cf-chart-bar-track">
+                  <div class="cf-chart-bar-fill after" style="width: 20%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cf-results-content">
+          <div class="cf-result-metrics">
+            <div class="cf-result-metric">
+              <div class="cf-result-metric-value">35%</div>
+              <div class="cf-result-metric-label">Wait Reduction</div>
+            </div>
+            <div class="cf-result-metric">
+              <div class="cf-result-metric-value">82%</div>
+              <div class="cf-result-metric-label">Less Idle Time</div>
+            </div>
+            <div class="cf-result-metric">
+              <div class="cf-result-metric-value">+4</div>
+              <div class="cf-result-metric-label">Patients/Doctor/Day</div>
+            </div>
+            <div class="cf-result-metric">
+              <div class="cf-result-metric-value">75%</div>
+              <div class="cf-result-metric-label">Fewer Complaints</div>
+            </div>
+          </div>
+          <div class="cf-testimonial">
+            <p class="cf-testimonial-quote">
+              We went from constant chaos to a well-oiled machine. Wait times dropped, staff stopped burning out, and patients actually thank us now. The ROI was visible within the first week.
+            </p>
+            <div class="cf-testimonial-author">
+              <div class="cf-testimonial-avatar">DK</div>
+              <div>
+                <div class="cf-testimonial-name">Dr. Kwame Asante</div>
+                <div class="cf-testimonial-role">Medical Director, Accra Central Clinic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="cf-pricing" id="pricing">
+    <div class="cf-pricing-inner">
+      <div class="cf-pricing-header">
+        <div class="cf-section-eyebrow">Simple Pricing</div>
+        <h2 class="cf-section-title">
+          Start small, scale <em>confidently</em>
+        </h2>
+      </div>
+      <div class="cf-pricing-grid">
+        <div class="cf-pricing-card">
+          <div class="cf-pricing-name">Starter</div>
+          <div class="cf-pricing-desc">For single-location clinics</div>
+          <div class="cf-pricing-price">
+            <span class="cf-pricing-currency">$</span>
+            <span class="cf-pricing-amount">49</span>
+            <span class="cf-pricing-period">/month</span>
+          </div>
+          <ul class="cf-pricing-features">
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              1 branch
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Up to 5 staff members
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Queue management
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              SMS notifications
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Basic analytics
+            </li>
+          </ul>
+          <a href="#" class="cf-pricing-cta">Get Started</a>
+        </div>
+        <div class="cf-pricing-card featured">
+          <div class="cf-pricing-badge">Most Popular</div>
+          <div class="cf-pricing-name">Professional</div>
+          <div class="cf-pricing-desc">For growing clinics</div>
+          <div class="cf-pricing-price">
+            <span class="cf-pricing-currency">$</span>
+            <span class="cf-pricing-amount">149</span>
+            <span class="cf-pricing-period">/month</span>
+          </div>
+          <ul class="cf-pricing-features">
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Up to 5 branches
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Unlimited staff
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              SMS + WhatsApp
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Advanced analytics
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Priority support
+            </li>
+          </ul>
+          <a href="#" class="cf-pricing-cta">Start Free Trial</a>
+        </div>
+        <div class="cf-pricing-card">
+          <div class="cf-pricing-name">Enterprise</div>
+          <div class="cf-pricing-desc">For clinic networks</div>
+          <div class="cf-pricing-price">
+            <span class="cf-pricing-currency">$</span>
+            <span class="cf-pricing-amount">399</span>
+            <span class="cf-pricing-period">/month</span>
+          </div>
+          <ul class="cf-pricing-features">
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Unlimited branches
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Unlimited everything
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Custom integrations
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              API access
+            </li>
+            <li class="cf-pricing-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Dedicated success manager
+            </li>
+          </ul>
+          <a href="#" class="cf-pricing-cta">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cf-cta">
+    <div class="cf-cta-inner">
+      <h2 class="cf-cta-title">
+        Ready to end the <em>chaos</em>?
+      </h2>
+      <p class="cf-cta-subtitle">
+        Join 200+ clinics that transformed their patient flow. Setup takes less than 10 minutes.
+      </p>
+      <div class="cf-cta-actions">
+        <a href="#" class="cf-btn-primary">
+          Start Free Trial
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href="#" class="cf-btn-secondary">
+          Schedule a Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="cf-footer">
+    <div class="cf-footer-inner">
+      <div class="cf-footer-grid">
+        <div class="cf-footer-brand">
+          <div class="cf-footer-logo">
+            <div class="cf-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <span class="cf-logo-text">ClinicFlow</span>
+          </div>
+          <p class="cf-footer-tagline">
+            Real-time queue management that transforms how clinics operate. Built with Elixir + Phoenix for unmatched reliability.
+          </p>
+        </div>
+        <div class="cf-footer-section">
+          <h4>Product</h4>
+          <ul class="cf-footer-links">
+            <li><a href="#features" class="cf-footer-link">Features</a></li>
+            <li><a href="#pricing" class="cf-footer-link">Pricing</a></li>
+            <li><a href="#" class="cf-footer-link">Integrations</a></li>
+            <li><a href="#" class="cf-footer-link">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="cf-footer-section">
+          <h4>Company</h4>
+          <ul class="cf-footer-links">
+            <li><a href="#" class="cf-footer-link">About</a></li>
+            <li><a href="#" class="cf-footer-link">Blog</a></li>
+            <li><a href="#" class="cf-footer-link">Careers</a></li>
+            <li><a href="#" class="cf-footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="cf-footer-section">
+          <h4>Legal</h4>
+          <ul class="cf-footer-links">
+            <li><a href="#" class="cf-footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="cf-footer-link">Terms of Service</a></li>
+            <li><a href="#" class="cf-footer-link">GDPR Compliance</a></li>
+            <li><a href="#" class="cf-footer-link">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="cf-footer-bottom">
+        <p class="cf-footer-copy">© 2025 ClinicFlow. All rights reserved.</p>
+        <div class="cf-footer-socials">
+          <a href="#" class="cf-footer-social">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+            </svg>
+          </a>
+          <a href="#" class="cf-footer-social">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="#" class="cf-footer-social">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Navigation scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Animate chart bars on scroll
+  const chartBars = document.querySelectorAll('.cf-chart-bar-fill');
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+        barObserver.unobserve(bar);
+      }
+    });
+  }, observerOptions);
+
+  chartBars.forEach(bar => barObserver.observe(bar));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>

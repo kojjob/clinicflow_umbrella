@@ -1,0 +1,1191 @@
+<%!-- About Page for ClinicFlow --%>
+<%!-- Editorial Medical Luxury aesthetic - confident, warm, sophisticated --%>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     CLINICFLOW ABOUT PAGE
+     ═══════════════════════════════════════════════════════════════ */
+
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cf-navy: #0f172a;
+    --cf-navy-90: #1e293b;
+    --cf-slate: #334155;
+    --cf-slate-light: #64748b;
+    --cf-warm-white: #fafaf9;
+    --cf-cream: #f5f5f4;
+    --cf-accent: #0ea5e9;
+    --cf-accent-dark: #0284c7;
+    --cf-accent-glow: rgba(14, 165, 233, 0.15);
+    --cf-success: #10b981;
+    --cf-urgent: #f59e0b;
+    --cf-emergency: #ef4444;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 10rem;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-base: 0.4s var(--ease-out-expo);
+  }
+
+  .about-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .about-page {
+    font-family: var(--font-body);
+    color: var(--cf-navy);
+    background: var(--cf-warm-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Navigation */
+  .cf-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--space-md) var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(250, 250, 249, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    transition: var(--transition-base);
+  }
+
+  .cf-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--cf-navy);
+  }
+
+  .cf-logo-mark {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--cf-accent) 0%, var(--cf-accent-dark) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--cf-accent-glow);
+  }
+
+  .cf-logo-mark svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+  }
+
+  .cf-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .cf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .cf-nav-link {
+    color: var(--cf-slate);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .cf-nav-link:hover,
+  .cf-nav-link.active {
+    color: var(--cf-accent);
+  }
+
+  .cf-nav-cta {
+    background: var(--cf-navy);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-base);
+  }
+
+  .cf-nav-cta:hover {
+    background: var(--cf-accent);
+    transform: translateY(-2px);
+  }
+
+  /* Hero Section */
+  .about-hero {
+    padding: calc(var(--space-3xl) + 80px) var(--space-xl) var(--space-2xl);
+    background: linear-gradient(180deg, var(--cf-cream) 0%, var(--cf-warm-white) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(ellipse, var(--cf-accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    position: relative;
+  }
+
+  .about-hero-content {
+    animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+  }
+
+  .about-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cf-accent-glow);
+    color: var(--cf-accent-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+  }
+
+  .about-hero-eyebrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .about-hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+  }
+
+  .about-hero-headline em {
+    font-style: italic;
+    color: var(--cf-accent);
+  }
+
+  .about-hero-subhead {
+    font-size: 1.25rem;
+    color: var(--cf-slate);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  .about-hero-visual {
+    position: relative;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s forwards;
+    opacity: 0;
+  }
+
+  .about-hero-image {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, var(--cf-navy-90) 0%, var(--cf-navy) 100%);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  }
+
+  .about-hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .healthcare-illustration {
+    position: relative;
+    z-index: 1;
+  }
+
+  .healthcare-illustration svg {
+    width: 280px;
+    height: 280px;
+    color: white;
+    opacity: 0.9;
+  }
+
+  .floating-badge {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-badge.mission {
+    top: 60px;
+    right: -20px;
+    animation-delay: 0s;
+  }
+
+  .floating-badge.impact {
+    bottom: 80px;
+    left: -30px;
+    animation-delay: -2s;
+  }
+
+  .floating-badge-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-badge-icon.green {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--cf-success);
+  }
+
+  .floating-badge-icon.blue {
+    background: var(--cf-accent-glow);
+    color: var(--cf-accent);
+  }
+
+  .floating-badge-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-badge-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cf-navy);
+  }
+
+  .floating-badge-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cf-accent);
+  }
+
+  /* Mission Section */
+  .mission-section {
+    padding: var(--space-3xl) var(--space-xl);
+    background: white;
+  }
+
+  .mission-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .mission-card {
+    background: var(--cf-cream);
+    border-radius: 20px;
+    padding: var(--space-xl);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-base);
+  }
+
+  .mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  }
+
+  .mission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cf-accent) 0%, var(--cf-success) 100%);
+  }
+
+  .mission-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+    background: white;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  }
+
+  .mission-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--cf-accent);
+  }
+
+  .mission-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--cf-navy);
+  }
+
+  .mission-desc {
+    color: var(--cf-slate);
+    line-height: 1.7;
+  }
+
+  /* Values Section */
+  .values-section {
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--cf-navy);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .values-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at right, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .values-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .values-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--cf-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--cf-accent);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .value-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    text-align: center;
+    transition: var(--transition-base);
+  }
+
+  .value-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+    border-color: var(--cf-accent);
+  }
+
+  .value-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-md);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cf-accent-glow);
+  }
+
+  .value-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--cf-accent);
+  }
+
+  .value-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .value-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  /* Team Section */
+  .team-section {
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--cf-cream);
+  }
+
+  .team-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .team-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition-base);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  }
+
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  }
+
+  .team-avatar {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, var(--cf-slate-light) 0%, var(--cf-slate) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 0v40M0 20h40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .team-avatar svg {
+    width: 100px;
+    height: 100px;
+    color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .team-info {
+    padding: var(--space-lg);
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    margin-bottom: 0.25rem;
+    color: var(--cf-navy);
+  }
+
+  .team-role {
+    color: var(--cf-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .team-bio {
+    color: var(--cf-slate);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .team-social {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .team-social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--cf-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cf-slate);
+    transition: var(--transition-base);
+  }
+
+  .team-social-link:hover {
+    background: var(--cf-accent);
+    color: white;
+  }
+
+  .team-social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--space-3xl) var(--space-xl);
+    background: white;
+  }
+
+  .cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-headline em {
+    font-style: italic;
+    color: var(--cf-accent);
+  }
+
+  .cta-subhead {
+    font-size: 1.25rem;
+    color: var(--cf-slate);
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cf-accent);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-base);
+  }
+
+  .cta-btn-primary:hover {
+    background: var(--cf-accent-dark);
+    transform: translateY(-2px);
+  }
+
+  .cta-btn-primary svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--cf-navy);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--cf-navy);
+    transition: var(--transition-base);
+  }
+
+  .cta-btn-secondary:hover {
+    background: var(--cf-navy);
+    color: white;
+  }
+
+  /* Footer */
+  .cf-footer {
+    background: var(--cf-navy);
+    color: white;
+    padding: var(--space-2xl) var(--space-xl) var(--space-lg);
+  }
+
+  .cf-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cf-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .cf-footer-brand {
+    max-width: 300px;
+  }
+
+  .cf-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .cf-footer-logo-mark {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--cf-accent) 0%, var(--cf-accent-dark) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cf-footer-logo-mark svg {
+    width: 22px;
+    height: 22px;
+    color: white;
+  }
+
+  .cf-footer-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+  }
+
+  .cf-footer-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .cf-footer-column-title {
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: white;
+  }
+
+  .cf-footer-links {
+    list-style: none;
+  }
+
+  .cf-footer-links li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .cf-footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .cf-footer-links a:hover {
+    color: var(--cf-accent);
+  }
+
+  .cf-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cf-footer-copy {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+  }
+
+  .cf-footer-social {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .cf-footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-base);
+  }
+
+  .cf-footer-social a:hover {
+    background: var(--cf-accent);
+    color: white;
+  }
+
+  .cf-footer-social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .about-hero-subhead {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .about-hero-visual {
+      display: none;
+    }
+
+    .mission-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cf-nav-links {
+      display: none;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cf-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cf-footer-bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="about-page">
+  <!-- Navigation -->
+  <nav class="cf-nav">
+    <a href="/" class="cf-logo">
+      <div class="cf-logo-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      </div>
+      <span class="cf-logo-text">ClinicFlow</span>
+    </a>
+    <div class="cf-nav-links">
+      <a href="/#features" class="cf-nav-link">Features</a>
+      <a href="/#pricing" class="cf-nav-link">Pricing</a>
+      <a href="/about" class="cf-nav-link active">About</a>
+      <a href="/contact" class="cf-nav-link">Contact</a>
+      <a href="/reception" class="cf-nav-cta">Launch App</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-hero-content">
+        <div class="about-hero-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          Our Story
+        </div>
+        <h1 class="about-hero-headline">
+          Built by healthcare <em>professionals</em>, for clinics
+        </h1>
+        <p class="about-hero-subhead">
+          We understand the chaos of a busy waiting room. That's why we built ClinicFlow - to bring calm, efficiency, and better patient experiences to clinics worldwide.
+        </p>
+      </div>
+      <div class="about-hero-visual">
+        <div class="about-hero-image">
+          <div class="healthcare-illustration">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <div class="floating-badge mission">
+            <div class="floating-badge-icon green">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="floating-badge-text">Mission-Driven</div>
+              <div class="floating-badge-value">Since 2023</div>
+            </div>
+          </div>
+          <div class="floating-badge impact">
+            <div class="floating-badge-icon blue">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="floating-badge-text">Patients Helped</div>
+              <div class="floating-badge-value">500K+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="mission-inner">
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+          </div>
+          <h3 class="mission-title">Our Mission</h3>
+          <p class="mission-desc">
+            To eliminate waiting room chaos and create seamless patient experiences. Every minute saved is a better outcome for patients and staff alike.
+          </p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <h3 class="mission-title">Our Vision</h3>
+          <p class="mission-desc">
+            A world where healthcare facilities run at peak efficiency, where no patient waits unnecessarily, and where technology empowers human care.
+          </p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <h3 class="mission-title">Our Promise</h3>
+          <p class="mission-desc">
+            We promise to always put patient experience first, to build technology that's simple yet powerful, and to support our customers every step of the way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="values-inner">
+      <div class="values-header">
+        <div class="section-eyebrow">What Drives Us</div>
+        <h2 class="section-title">Our Core <em>Values</em></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h4 class="value-title">Patient First</h4>
+          <p class="value-desc">Every feature we build starts with the question: how does this improve the patient experience?</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h4 class="value-title">Simplicity</h4>
+          <p class="value-desc">Complex problems deserve simple solutions. We strip away the unnecessary to focus on what matters.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h4 class="value-title">Trust & Security</h4>
+          <p class="value-desc">Healthcare data is sacred. We protect it with enterprise-grade security and full GDPR compliance.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h4 class="value-title">Partnership</h4>
+          <p class="value-desc">We succeed when our customers succeed. Every clinic we serve becomes a partner in our mission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-inner">
+      <div class="team-header">
+        <div class="section-eyebrow" style="color: var(--cf-accent);">The People Behind ClinicFlow</div>
+        <h2 class="section-title">Meet Our <em>Team</em></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <div class="team-info">
+            <h4 class="team-name">Dr. Ama Mensah</h4>
+            <div class="team-role">Co-Founder & CEO</div>
+            <p class="team-bio">Former Medical Director with 15 years of clinic management experience. Saw the chaos firsthand and decided to fix it.</p>
+            <div class="team-social">
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <div class="team-info">
+            <h4 class="team-name">Kojo Asamoah</h4>
+            <div class="team-role">Co-Founder & CTO</div>
+            <p class="team-bio">Full-stack engineer obsessed with building real-time systems. Elixir evangelist. Believes in technology that just works.</p>
+            <div class="team-social">
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <div class="team-info">
+            <h4 class="team-name">Nana Osei</h4>
+            <div class="team-role">Head of Customer Success</div>
+            <p class="team-bio">Passionate about helping clinics transform their operations. Former healthcare consultant. Champion for clinic staff everywhere.</p>
+            <div class="team-social">
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="#" class="team-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-headline">Ready to join our <em>mission</em>?</h2>
+      <p class="cta-subhead">Start transforming your clinic's patient experience today. No credit card required.</p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn-primary">
+          Start Free Trial
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href="/contact" class="cta-btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="cf-footer">
+    <div class="cf-footer-inner">
+      <div class="cf-footer-grid">
+        <div class="cf-footer-brand">
+          <div class="cf-footer-logo">
+            <div class="cf-footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <span class="cf-footer-logo-text">ClinicFlow</span>
+          </div>
+          <p class="cf-footer-tagline">Transforming clinic operations with real-time queue management and intelligent patient flow.</p>
+        </div>
+        <div class="cf-footer-column">
+          <h5 class="cf-footer-column-title">Product</h5>
+          <ul class="cf-footer-links">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        <div class="cf-footer-column">
+          <h5 class="cf-footer-column-title">Company</h5>
+          <ul class="cf-footer-links">
+            <li><a href="/about">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="cf-footer-column">
+          <h5 class="cf-footer-column-title">Support</h5>
+          <ul class="cf-footer-links">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="cf-footer-bottom">
+        <p class="cf-footer-copy">&copy; 2024 ClinicFlow. All rights reserved.</p>
+        <div class="cf-footer-social">
+          <a href="#" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
